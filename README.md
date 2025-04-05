@@ -53,18 +53,26 @@ sudo pacman -S sddm plasma kde-applications xorg plasma-desktop plasma-wayland-s
 
 ### Dependencies
 
+Install all required packages:
+
 ```bash
-# Window Management
+# Core System Utilities
+sudo pacman -S base-devel git curl wget stow
+
+# Window Management & Desktop Environment
 sudo pacman -S hyprland hyprpaper waybar wofi dunst
+sudo pacman -S qt5-wayland qt6-wayland xdg-desktop-portal-hyprland
+sudo pacman -S sddm plasma kde-applications xorg plasma-desktop plasma-wayland-session
 
 # Development Tools
 sudo pacman -S kitty fish neovim github-cli
+sudo pacman -S btop bat lsd zellij fd fzf
 
-# System Utilities
+# System Management
 sudo pacman -S dolphin
 
-# Additional Dependencies
-sudo pacman -S qt5-wayland qt6-wayland xdg-desktop-portal-hyprland
+# Additional Tools
+sudo pacman -S grub findmnt
 ```
 
 ### Stow Installation
