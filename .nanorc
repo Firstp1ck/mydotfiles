@@ -1,0 +1,8 @@
+bind ^Z undo main
+bind ^Y redo main
+bind ^S savefile main
+bind ^C copy main
+bind ^V paste all
+
+## For copying a marked region to the system clipboard:
+bind Sh-M-C "{execute}|xsel -ib{enter}{undo}" main

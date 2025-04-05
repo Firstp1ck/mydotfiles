@@ -1,0 +1,56 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    // "locale",
+    // {
+    //   "type": "localip",
+    //   "key": "Lokale IP"
+    // },
+    // {
+    //   "type": "publicip",
+    //   "key": "Öffentliche IP"
+    // },
+    // {
+    //   "type": "netio",
+    //   "key": "Netzwerkschnittstellen"
+    // },
+    "battery",
+    "poweradapter",
+    "break",
+    "colors"
+  ],
+  "localip": {
+    "showIpv4": true,
+    "showIpv6": true,
+    "showMac": false
+  },
+  "publicip": {
+    "timeout": 5000
+  },
+  "netio": {
+    "defaultRouteOnly": true
+  }
+}
