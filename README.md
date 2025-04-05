@@ -46,7 +46,7 @@ stow .
 
 ### KDE Dependencies
 ```bash
-sudo pacman -S plasma-desktop plasma-wayland-session
+sudo pacman -S sddm plasma kde-applications xorg plasma-desktop plasma-wayland-session
 ```
 
 ## Installation
