@@ -1,0 +1,13 @@
+{
+  "BACKGROUND_COLOR": "#121214",
+  "chromiumSwitches": {},
+  "IS_MAXIMIZED": true,
+  "IS_MINIMIZED": false,
+  "WINDOW_BOUNDS": {
+    "x": 3848,
+    "y": 9,
+    "width": 1264,
+    "height": 1423
+  },
+  "SKIP_HOST_UPDATE": true
+}

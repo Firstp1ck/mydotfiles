@@ -151,7 +151,7 @@
             }
         ],
         "target_uinput": "keyboard + mouse",
-        "output_symbol": "Control_L + dead_circumflex",
+        "output_symbol": "Control_L + asciicircum",
         "name": "^",
         "mapping_type": "key_macro"
     }

@@ -20,7 +20,7 @@ IconSize=48
 DirHistory[$e]=$HOME/Games/
 
 [General]
-DoubleClickViewAction=none
+DoubleClickViewAction=view_redisplay
 FilterBar=true
 LockPanels=false
 OpenExternallyCalledFolderInNewTab=true
@@ -42,7 +42,7 @@ dateFormat=ShortFormat
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
-Places Icons Static Size=22
+Places Icons Static Size=32
 
 [MainWindow]
 MenuBar=Disabled
@@ -50,8 +50,14 @@ MenuBar=Disabled
 [Notification Messages]
 warnAboutRisksBeforeActingAsAdmin=false
 
+[PlacesPanel]
+IconSize=32
+
 [PreviewSettings]
-Plugins=appimagethumbnail,audiothumbnail,windowsexethumbnail,imagethumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsimagethumbnail,opendocumentthumbnail,directorythumbnail,fontthumbnail,svgthumbnail,textthumbnail,gdk-pixbuf-thumbnailer
+Plugins=appimagethumbnail,audiothumbnail,windowsexethumbnail,imagethumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,jpegthumbnail,kraorathumbnail,windowsimagethumbnail,directorythumbnail,fontthumbnail,svgthumbnail,textthumbnail,gdk-pixbuf-thumbnailer
+
+[VersionControl]
+enabledPlugins=Git
 
 [ViewPropertiesDialog]
 2 screens: Height=584

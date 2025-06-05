@@ -40,6 +40,8 @@ debug = false
 #  If you don't have or don't want Nerdfont installed you can turn this off
 nerdfont = true
 # 
+show_image_preview = true
+code_previewer = 'bat'
 # Set transparent background or not (this only work when your terminal background is transparent)
 transparent_background = false
 # 

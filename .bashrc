@@ -3,6 +3,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+set -o vi
+
+eval "$(zoxide init bash)"
+
 # Git prompt setup - Arch-specific path
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     source /usr/share/git/completion/git-prompt.sh
@@ -53,44 +57,93 @@ vim() {
     fi
 }
 
+ghf() {
+  gh repo fork "$1/$2" --clone
+}
+
 # Set the prompt
 PROMPT_COMMAND=bash_prompt
 
 # Prompt configuration with git integration
 # PS1='\[\033[32m\]EOS \[\033[0m\]\w\[\033[33m\]$(__git_ps1 " %s")\[\033[0m\] > '
 
-# Arch-specific aliases
+# General alias
+alias cls='clear'
+bind 'Control-l: clear-screen'
+alias ..='cd ..'
+# alias rm='rm -i'
+# alias mv='mv -i'
+# alias cp='cp -i'
+alias cd='z'
 alias ls='lsd -lah --group-directories-first --color=auto'
 alias top='btop'
 alias cat='bat'
+alias vi="nvim"
 alias vim='nvim'
 alias fzf='fzf --bind "enter:execute(nvim {})" -m --preview="bat --color=always --style=numbers --line-range=:500 {}"'
 alias fd='fd -H --max-depth 4'
 alias zj='zellij'
+
+# Pacman/yay/apt alias
+alias pcn='sudo pacman'
 alias pacman='sudo pacman'
+alias pacsy='sudo reflector --verbose --country DE,CH,AT --protocol https --sort rate --latest 20 --download-timeout 6 --save /etc/pacman.d/mirrorlist'
 alias pacup='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
 alias pacrm='sudo pacman -Rns'
-# alias yay='yay --sudoloop'
+alias search='yay -Ss'
+alias apt-search='apt search'
+
+# Git alias
+alias git-rm-cache='git rm -rf --cached .'
+alias gc='git commit -m'
+alias ga='git add .'
+alias gs='git status'
+alias g='git'
+alias gp='git push'
+alias gl='git pull'
+alias git-rm='git restore --staged'
+
+# Grep alias
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias git-rm-cache='git rm -rf --cached .'
-alias owui-server='kitty +kitten ssh firstpick@192.168.1.114'
-alias search='yay -Ss'
-alias rm='rm -i'
-alias mv='mv -i'
-alias folder_backup='/home/firstpick/Apps/FolderBackUp/Folder_BackUp'
+
+# Bootloader alias
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias uuid='ls -l /dev/disk/by-uuid'
 alias mount-check='sudo findmnt --verify --verbose'
-alias apt-search='apt search'
-alias cls='clear'
-bind 'Control-l: clear-screen'
 
-# Go Bin's
-export PATH=$PATH:$HOME/go/bin
+# Systemctl alias
+alias sysstat='systemctl status'
+alias sysen='systemctl enable'
+alias sysdis='systemctl disable'
+
+# Custom Scripts
+alias server='Start_ssh_server.sh'
+alias update='Start_System_setup.sh --function update_arch'
+alias update-o='Start_System_setup.sh --function update_specific_package'
+alias backup='Start_System_setup.sh --function system_backup'
+alias setup='Start_System_setup.sh'
+alias stows='Start_stow_solve.sh'
+alias note='Start_notes.sh'
+alias notes='Start_notes.sh'
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind 'TAB:menu-complete'
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set completion-map-case on
+
+export SCRIPTS_DIR="$HOME/Dokumente/GitHub/Linux-Setup/Scripts"
+export PATH="$PATH:$SCRIPTS_DIR:$HOME/go/bin"
+
+if [ -d "$SCRIPTS_DIR" ]; then
+    find "$SCRIPTS_DIR" -type f -name "*.sh" -exec chmod +x {} \;
+fi
 
 # Language settings
 export LC_ALL="de_CH.UTF-8"
@@ -107,8 +160,8 @@ export GIT_PS1_SHOWCOLORHINTS=1
 
 # Editor settings
 unset EDITOR
-export VISUAL=nvim
 export EDITOR=nvim
+export VISUAL=nvim
 
 # Path and environment variables for Ollama
 # export PATH=$PATH:/opt/rocm/bin:/opt/rocm/opencl/bin
@@ -160,3 +213,10 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
 export XDG_CURRENT_DESKTOP=Hyprland
+
+export ONEDRIVE_HTTP_PROTOCOL=HTTP/1.1
+export ONEDRIVE_IP_VERSION=4
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval "$(zoxide init bash)"
