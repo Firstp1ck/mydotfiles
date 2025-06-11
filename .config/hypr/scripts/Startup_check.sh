@@ -42,15 +42,6 @@ check_numlock_setting() {
     return 0
 }
 
-# Check nas_sync
-check_nas_sync() {
-    if [ ! -f "/tmp/rsync_success" ]; then
-        notify-send -u critical "Autostart Warning" "NAS sync script did not run!"
-        return 1
-    fi
-    return 0
-}
-
 # Array of processes to check (extracted from autostart.conf)
 processes=(
     "tor"
@@ -87,11 +78,6 @@ fi
 
 # Check for wallpaper change
 if ! check_wallpaper_change; then
-    ((failed++))
-fi
-
-# Check for NAS sync
-if ! check_nas_sync; then
     ((failed++))
 fi
 

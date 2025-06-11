@@ -245,7 +245,6 @@
             "keybinds": "~/.config/waybar/scripts/keybinds.py",
             "drun": "wofi --show drun --style ~/.config/wofi/menu.css",
             "open_keybinds": "kitty nvim ~/.config/hypr/sources/keybindings.conf",
-            "onedrive_live": "$HOME/.config/waybar/scripts/onedrive_live.sh",
             "snapshot": "$HOME/.config/waybar/scripts/snapshot.sh"
         }
     },
