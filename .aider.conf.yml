@@ -1,0 +1,44 @@
+
+# =====================================================
+# .aider.conf.yml - Aider configuration
+# Optimized for local Ollama + devstral-small-2
+# =====================================================
+
+# === Model Configuration ===
+model: ollama_chat/devstral-small-2:24b
+openai-api-base: http://127.0.0.1:11434/v1
+
+# === Context & Performance ===
+# Matches OLLAMA_CONTEXT_LENGTH=32768
+map-tokens: 24000
+max-chat-history-tokens: 8000
+
+# === File Restrictions: Whitelist Only ===
+# SECURITY: Everything read-only except these directories
+file:
+  - src/
+  - tests/
+  - scripts/
+
+# Read-only reference files (RAG context)
+read:
+  - README.md
+  - docs/
+  - Cargo.toml
+  - Cargo.lock
+  - .env.example
+
+# === Security Enforcement ===
+git: true                    # Require Git repository
+gitignore: true             # Respect .gitignore
+aiderignore: .aiderignore   # Enforce .aiderignore
+
+# === Git Integration ===
+auto-commits: true
+dirty-commits: true
+auto-lint: true
+
+# === Output ===
+pretty: true
+dark-mode: true
+stream: true

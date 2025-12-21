@@ -1,0 +1,55 @@
+
+# =====================================================
+# .aiderignore - Block everything except whitelist
+# =====================================================
+
+# Block everything by default
+/*
+
+# ===== Allow whitelisted directories =====
+!src/
+!tests/
+!scripts/
+!crates/
+
+# ===== Allow nested files in whitelisted dirs =====
+!src/**
+!tests/**
+!scripts/**
+!crates/**
+
+# ===== Allow read-only reference files =====
+!README.md
+!docs/
+!docs/**
+!Cargo.toml
+!Cargo.lock
+!.env.example
+!LICENSE
+!ARCHITECTURE.md
+!API_REFERENCE.md
+
+# ===== Explicitly block system/build directories =====
+.git
+.gitignore
+.gitattributes
+.github/
+node_modules/
+build/
+dist/
+target/
+*.o
+*.a
+*.so
+.DS_Store
+.env
+.env.local
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
